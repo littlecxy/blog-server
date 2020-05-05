@@ -1,0 +1,1 @@
+let error = ()=>{console.log(111)}
