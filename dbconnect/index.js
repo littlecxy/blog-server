@@ -48,11 +48,11 @@ let article =
      title TEXT(0) NOT NULL COMMENT '文章标题',
      content TEXT(0) NOT NULL COMMENT '文章内容',
      md TEXT(0) NOT NULL COMMENT 'markdown',
-     uid VARCHAR(40) NOT NULL COMMENT '用户id',
+     uid INT NOT NULL COMMENT '用户id',
      date VARCHAR(100) NOT NULL COMMENT '发表时间',
-     pv VARCHAR(40) NOT NULL DEFAULT '0' COMMENT '浏览量',
+     pv INT NOT NULL DEFAULT '0' COMMENT '浏览量',
      species INT NOT NULL COMMENT '文章种类',
-     reserved VARCHAR(50) NOT NULL COMMENT '预留字段',
+     reserved VARCHAR(50) COMMENT '预留字段',
      PRIMARY KEY(id)
     );`
 
