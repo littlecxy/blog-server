@@ -8,4 +8,7 @@ router.get('/', function (ctx, next) {
   console.log('sql执行完毕')
 })
 
+// 发表文章
+router.post('/postArticle',articleHandle.postArticle);
+
 module.exports = router

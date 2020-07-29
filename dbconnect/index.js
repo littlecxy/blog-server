@@ -40,7 +40,7 @@ let user =
      rights INT NOT NULL COMMENT '权限',
      email VARCHAR(50) NOT NULL COMMENT '邮箱',
      PRIMARY KEY ( id )
-    );`
+    ) character set utf8 collate utf8_general_ci;`
 
 let article =
     `create table if not exists article(
@@ -54,7 +54,7 @@ let article =
      species INT NOT NULL COMMENT '文章种类',
      reserved VARCHAR(50) COMMENT '预留字段',
      PRIMARY KEY(id)
-    );`
+    ) character set utf8 collate utf8_general_ci;`
 
 let comment =
     `create table if not exists comment(
@@ -67,7 +67,7 @@ let comment =
      uid INT NOT NULL COMMENT '用户id',
      reserved VARCHAR(50) NOT NULL COMMENT '预留字段',
      PRIMARY KEY(id) 
-    );`
+    ) character set utf8 collate utf8_general_ci;`
 
 let createTable = ( sql ) => {
   return query( sql, [] )

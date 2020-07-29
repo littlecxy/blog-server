@@ -5,3 +5,8 @@ exports.insertData = ( value ) => {
     return query( _sql, value)
     
   }
+
+  exports.login = ( value ) => {
+    let _sql = "select * from user where email=? and password=?"
+    return query( _sql, value)
+  }

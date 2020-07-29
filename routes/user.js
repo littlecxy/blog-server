@@ -25,11 +25,8 @@ router.post('/uploadfile', async (ctx, next) => {
 });
 
 // 注册
-router.post('/register',async (ctx,next) => {
-  ctx.body = 'this is a success response!';
-  let user = [];
-  user = ctx.request.body;
-  userHandle.registered(user);
-})
+router.post('/register',userHandle.registered);
+// 登录
+router.post('/login',userHandle.login);
 
 module.exports = router

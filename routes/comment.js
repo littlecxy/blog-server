@@ -8,4 +8,8 @@ router.get('/', function (ctx, next) {
   console.log('sql执行完毕')
 })
 
+// 发表评论
+router.post('/postComment',commentHandle.postComment);
+// 查询评论
+router.post('/findComment',commentHandle.findComment);
 module.exports = router
