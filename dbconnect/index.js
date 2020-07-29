@@ -48,7 +48,6 @@ let article =
      title TEXT(0) NOT NULL COMMENT '文章标题',
      content TEXT(0) NOT NULL COMMENT '文章内容',
      md TEXT(0) NOT NULL COMMENT 'markdown',
-     uid INT NOT NULL COMMENT '用户id',
      date VARCHAR(100) NOT NULL COMMENT '发表时间',
      pv INT NOT NULL DEFAULT '0' COMMENT '浏览量',
      species INT NOT NULL COMMENT '文章种类',

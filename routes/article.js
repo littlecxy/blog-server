@@ -10,5 +10,6 @@ router.get('/', function (ctx, next) {
 
 // 发表文章
 router.post('/postArticle',articleHandle.postArticle);
-
+// 获取文章
+router.post('/findArticle',articleHandle.findArticle);
 module.exports = router
