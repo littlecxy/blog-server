@@ -21,7 +21,8 @@ app.use(koaBody({
       maxFileSize: 200*1024*1024    // 设置上传文件大小最大限制，默认2M
   }
 }));
-
+// 获取静态资源路径
+// app.use(static(path.join(__dirname,'public/upload')))
 // 跨域请求
 app.use(cors({
 origin: function (ctx) {
