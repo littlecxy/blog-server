@@ -1,7 +1,9 @@
 const Koa = require('koa')
 const app = new Koa()
+const path = require('path')
 const views = require('koa-views')
 const json = require('koa-json')
+const static = require('koa-static')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
@@ -18,18 +20,14 @@ onerror(app)
 app.use(koaBody({
   multipart: true,
   formidable: {
-      maxFileSize: 200*1024*1024    // 设置上传文件大小最大限制，默认2M
+      maxFileSize: 400*1024*1024    // 设置上传文件大小最大限制，默认2M
   }
 }));
-// 获取静态资源路径
-// app.use(static(path.join(__dirname,'public/upload')))
 // 跨域请求
 app.use(cors({
 origin: function (ctx) {
-    if (ctx.url === '/test') {
-        return "*"; // 允许来自所有域名请求
-    }
     return 'http://localhost:8080';
+    // return 'http://192.144.171.231' 
 },
 exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
 maxAge: 5,
@@ -37,15 +35,16 @@ credentials: true,
 allowMethods: ['GET', 'POST', 'DELETE'],
 allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
 }))
-
-
+// 静态资源
+app.use(static(
+  path.join(__dirname, './public/upload')
+))
 // json解析器
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
 
 app.use(views(__dirname + '/views', {
   extension: 'pug'

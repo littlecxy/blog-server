@@ -19,3 +19,13 @@ exports.findArticle = async ctx =>{
         console.log(err)
     })
 }
+
+// 根据类型查询文章
+exports.findArticleByType = async ctx =>{
+    let type = ctx.request.body;
+    await articleModle.selectDataByType(type).then(result =>{
+        ctx.body = result;
+    }).catch(err=>{
+        console.log(err)
+    })
+}

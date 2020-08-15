@@ -6,6 +6,12 @@ exports.insertData = ( value ) => {
   }
 // 查询所有文章
 exports.selectData = ( value ) => {
-  let _sql = "select * from article"
+  let _sql = "select * from article order by date desc"
+  return query( _sql, value)
+}  
+
+// 根据类型查询文章
+exports.selectDataByType = ( value ) => {
+  let _sql = "select * from article where species=? order by date desc"
   return query( _sql, value)
 }  

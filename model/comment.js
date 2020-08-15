@@ -6,6 +6,6 @@ exports.insertData = ( value ) => {
   }
 
 exports.findData = ( value ) => {
-  let _sql = "select user.avator,user.name,comment.date,comment.content from user,comment where user.id = comment.uid and aid = ?"
+  let _sql = "select user.avator,user.name,comment.date,comment.content from user,comment where user.id = comment.uid and aid = ? order by comment.date desc"
   return query( _sql, value)
 }

@@ -12,4 +12,6 @@ router.get('/', function (ctx, next) {
 router.post('/postArticle',articleHandle.postArticle);
 // 获取文章
 router.post('/findArticle',articleHandle.findArticle);
+// 按照类型获取文章列表
+router.post('/findArticleByType',articleHandle.findArticleByType);
 module.exports = router

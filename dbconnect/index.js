@@ -46,7 +46,7 @@ let article =
     `create table if not exists article(
      id INT NOT NULL AUTO_INCREMENT,
      title TEXT(0) NOT NULL COMMENT '文章标题',
-     content TEXT(0) NOT NULL COMMENT '文章内容',
+     content VARCHAR(10000) NOT NULL COMMENT '文章内容',
      md TEXT(0) NOT NULL COMMENT 'markdown',
      date VARCHAR(100) NOT NULL COMMENT '发表时间',
      pv INT NOT NULL DEFAULT '0' COMMENT '浏览量',
